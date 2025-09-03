@@ -1,6 +1,7 @@
 # Keycloak Configuration
 
-This is the Keycloak configuration for [PSP](https://github.com/Portfolio-Solver-Platform).
+This is the [Keycloak](https://www.keycloak.org/) configuration for [PSP](https://github.com/Portfolio-Solver-Platform).
+Keycloak handles all user data, authentication and authorisation.
 
 > [!caution]
 > Not for use in production yet!
