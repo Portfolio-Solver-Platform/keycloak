@@ -11,23 +11,33 @@ This is the Keycloak configuration for [PSP](https://github.com/Portfolio-Solver
 > - Set up Ingress (in `ingress.yaml`).
 > - Add TLS certificate for encrypted traffic (in `keycloak.yaml`).
 
-## Usage 
+## Deployment
 
 This section will describe how to apply the Keycloak configuration
 so you can have a corresponding Keycloak instance running on Kubernetes.
 
-> [!important]
-> For now, in minikube, once Keycloak is set up, you have to use
-> `minikube service keycloak` to access it.
+How to use this deployment guide:
+1. First, see the [Prerequisites](#prerequisites).
+2. If you are using minikube, see [Minikube Notes](#minikube-notes).
+3. Deploy using [Skaffold](#skaffold).
 
-### Helm
+### Prerequisites
 
-This section will describe how to run Keycloak with this configuration using [helm](https://helm.sh/).
-
-Prerequisites:
+Before continuing with this guide, you need to:
 - Have a Kubernetes cluster running.
-- For minikube, also enable the Ingress addon: `minikube addons enable ingress`.
 - Have kubectl set up for the Kubernetes cluster.
 
-Run `helm install keycloak .` in the root of this repository.
+### Minikube Notes
 
+This section contains notes for deploying Keycloak in minikube specifically.
+
+Make sure to have the ingress addon enabled in minikube: `minikube addons enable ingress`.
+
+In minikube, when Keycloak has been set up, you can access Keycloak's admin panel
+by going to minikube's IP (use `minikube ip` to get it) in a browser.
+
+### Skaffold
+
+This section describes how to deploy Keycloak in Kubernetes using [Skaffold](https://skaffold.dev/).
+
+Run `skaffold dev` in the root of this repository.
