@@ -14,8 +14,8 @@ This is the Keycloak configuration for [PSP](https://github.com/Portfolio-Solver
 
 Prerequisites:
 - Have a Kubernetes cluster running.
-- For Minikube, also enable the Ingress addon: `minikube addons enable ingress`.
+- For minikube, also enable the Ingress addon: `minikube addons enable ingress`.
 - Have kubectl set up for the Kubernetes cluster.
 
 Execute the `setup.sh` script.
-To access Keycloak, for now, in Minikube, use `minikube service keycloak`.
+To access Keycloak, for now, in minikube, use `minikube service keycloak`.
