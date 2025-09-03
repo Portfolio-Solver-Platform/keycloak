@@ -10,6 +10,6 @@ profiles:
       helm:
         releases:
           - name: keycloak
-            chartPath: .
+            chartPath: helm/
             namespace: keycloak
             createNamespace: true
