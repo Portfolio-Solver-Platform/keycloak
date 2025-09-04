@@ -41,4 +41,6 @@ by going to minikube's IP (use `minikube ip` to get it) in a browser.
 
 This section describes how to deploy Keycloak in Kubernetes using [Skaffold](https://skaffold.dev/).
 
-Run `skaffold dev` in the root of this repository.
+In the root of this repository:
+- For development environment: run `skaffold dev`
+- For production/staging environment: run `skaffold run -p prod`
