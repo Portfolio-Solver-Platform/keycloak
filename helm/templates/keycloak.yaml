@@ -51,7 +51,11 @@ spec:
       containers:
         - name: keycloak
           image: quay.io/keycloak/keycloak:26.3.3
-          args: ["start", "--metrics-enabled=true"]
+          args: [
+            "start", 
+            "--metrics-enabled=true", # Enable metrics
+            "--event-metrics-user-enabled=true" # Enable metrics on events (currently, only supporting user events)
+          ]
           env:
             - name: KC_BOOTSTRAP_ADMIN_USERNAME
               value: "admin"
