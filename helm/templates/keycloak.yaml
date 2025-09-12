@@ -10,6 +10,8 @@ spec:
       port: 8080
       targetPort: http
       name: http
+    - name: management
+      port: 9000
   selector:
     app: keycloak
   type: ClusterIP
@@ -49,7 +51,7 @@ spec:
       containers:
         - name: keycloak
           image: quay.io/keycloak/keycloak:26.3.3
-          args: ["start"]
+          args: ["start", "--metrics-enabled=true"]
           env:
             - name: KC_BOOTSTRAP_ADMIN_USERNAME
               value: "admin"
