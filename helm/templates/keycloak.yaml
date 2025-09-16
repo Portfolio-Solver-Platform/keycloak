@@ -12,7 +12,7 @@ spec:
       protocol: TCP
     - name: management
       port: 9000
-      protocal: TCP
+      protocol: TCP
   selector:
     app: keycloak
   type: ClusterIP
