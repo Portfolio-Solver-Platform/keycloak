@@ -70,13 +70,13 @@ spec:
             - name: KC_PROXY_HEADERS
               value: "xforwarded"
             - name: KC_HTTP_ENABLED
-              value: "true"
+              value: "{{ .Values.httpEnabled }}"
             # In this explorative setup, no strict hostname is set.
             # For production environments, set a hostname for a secure setup.
             - name: KC_HOSTNAME_STRICT
-              value: "false"
-            - name: KC_HTTP_RELATIVE_PATH
-              value: /keycloak
+              value: "{{ .Values.hostnameStrict }}"
+            - name: KC_HOSTNAME
+              value: {{ .Values.hostname }}
             - name: KC_HEALTH_ENABLED
               value: "true"
             - name: 'KC_CACHE'
@@ -106,19 +106,19 @@ spec:
               containerPort: 8080
           startupProbe:
             httpGet:
-              path: /keycloak/health/started
+              path: /health/started
               port: 9000
             periodSeconds: 1
             failureThreshold: 600              
           readinessProbe:
             httpGet:
-              path: /keycloak/health/ready
+              path: /health/ready
               port: 9000
             periodSeconds: 10
             failureThreshold: 3              
           livenessProbe:
             httpGet:
-              path: /keycloak/health/live
+              path: /health/live
               port: 9000
             periodSeconds: 10
             failureThreshold: 3              
