@@ -1,1 +1,5 @@
 replicaCount: 1
+
+hostname: keycloak.local
+hostnameStrict: true
+httpEnabled: true
