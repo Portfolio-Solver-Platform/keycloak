@@ -12,7 +12,6 @@ profiles:
           - name: keycloak
             chartPath: helm/
             namespace: keycloak
-            createNamespace: true
   - name: prod
     deploy:
       helm:
@@ -20,7 +19,6 @@ profiles:
           - name: keycloak
             chartPath: helm
             namespace: keycloak
-            createNamespace: true
             valuesFiles:
               - helm/values-prod.yaml
             wait: true

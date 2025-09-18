@@ -1,3 +1,2 @@
 #!/bin/sh
-
-kubectl create namespace keycloak
+kubectl apply -f ./namespace.yaml
