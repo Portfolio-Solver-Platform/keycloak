@@ -68,7 +68,7 @@ spec:
             # In a production environment, verify which proxy type you are using, and restrict access to Keycloak
             # from other sources than your proxy if you continue to use proxy headers.
             - name: KC_PROXY_HEADERS
-              value: "xforwarded"
+              value: "forwarded"
             - name: KC_HTTP_ENABLED
               value: "{{ .Values.httpEnabled }}"
             # In this explorative setup, no strict hostname is set.
