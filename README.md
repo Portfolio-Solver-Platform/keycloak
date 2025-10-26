@@ -7,10 +7,8 @@ Keycloak handles all user data, authentication and authorisation.
 > Not for use in production yet!
 >
 > The following changes should be made before being production-ready:
-> - Make Keycloak run in a separate namespace.
 > - Replace the database with a production setup (in `database.yaml`).
-> - Set up Ingress (in `ingress.yaml`).
-> - Add TLS certificate for encrypted traffic (in `keycloak.yaml`).
+> - Make the secrets different (and not publicly available) in production settings.
 
 ## Deployment
 
@@ -19,23 +17,13 @@ so you can have a corresponding Keycloak instance running on Kubernetes.
 
 How to use this deployment guide:
 1. First, see the [Prerequisites](#prerequisites).
-2. If you are using minikube, see [Minikube Notes](#minikube-notes).
-3. Deploy using [Skaffold](#skaffold).
+2. Deploy using [Skaffold](#skaffold).
 
 ### Prerequisites
 
 Before continuing with this guide, you need to:
 - Have a Kubernetes cluster running.
 - Have kubectl set up for the Kubernetes cluster.
-
-### Minikube Notes
-
-This section contains notes for deploying Keycloak in minikube specifically.
-
-Make sure to have the ingress addon enabled in minikube: `minikube addons enable ingress`.
-
-In minikube, when Keycloak has been set up, you can access Keycloak's admin panel
-by going to minikube's IP (use `minikube ip` to get it) in a browser.
 
 ### Skaffold
 
