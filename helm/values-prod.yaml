@@ -1,1 +1,3 @@
-replicaCount: 2
+keycloak:
+  hostname: keycloak.local
+  instanceCount: 1

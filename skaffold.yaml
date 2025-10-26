@@ -12,6 +12,8 @@ profiles:
           - name: keycloak
             chartPath: helm/
             namespace: keycloak
+            valuesFiles:
+              - helm/values-dev.yaml
   - name: prod
     deploy:
       helm:

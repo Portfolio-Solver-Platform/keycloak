@@ -3,17 +3,19 @@ kind: Keycloak
 metadata:
   name: keycloak
 spec:
-  instances: 1
+  instances: {{ .Values.keycloak.instanceCount }}
   http:
-    httpEnabled: true
-    # tlsSecret: example-tls-secret  # Optional: for HTTPS
+    httpEnabled: {{ .Values.keycloak.httpEnabled }}
+    # tlsSecret: example-tls-secret  # For HTTPS, but gateway and mTLS handles this
   hostname:
-    hostname: keycloak.local
+    hostname: {{ .Values.keycloak.hostname }}
   bootstrapAdmin:
     service:
-      secret: keycloak-bootstrap-service-secret
-    # user:
-    #   secret: keycloak-bootstrap-user-secret
+      secret: {{ .Values.keycloak.bootstrap.admin.service }}
+    {{- if .Values.keycloak.bootstrap.admin.user }}
+    user:
+      secret: {{ .Values.keycloak.bootstrap.admin.user }}
+    {{- end }}
   db:
     database: "keycloak"
     host: "postgres"

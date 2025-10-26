@@ -1,5 +1,7 @@
-replicaCount: 1
 
-hostname: keycloak.local
-hostnameStrict: true
-httpEnabled: true
+keycloak:
+  httpEnabled: true
+  bootstrap:
+    admin:
+      service: keycloak-bootstrap-service-secret
+

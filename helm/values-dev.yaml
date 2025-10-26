@@ -1,0 +1,6 @@
+keycloak:
+  hostname: keycloak.local
+  instanceCount: 1
+  bootstrap:
+    admin:
+      user: keycloak-bootstrap-user-secret
