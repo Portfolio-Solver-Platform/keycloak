@@ -1,5 +1,7 @@
 
 locals {
+  client = keycloak_openid_client.client
+
   scopes = {
     projects = {
       read = keycloak_openid_client_scope.projects_read
