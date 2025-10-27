@@ -4,7 +4,7 @@ resource "keycloak_openid_client_scope" "projects_read" {
   description            = "Scope for reading the currently active projects"
   consent_screen_text    = "See currently active projects"
   include_in_token_scope = true
-  gui_order              = 100
+  gui_order              = 130
 }
 
 
