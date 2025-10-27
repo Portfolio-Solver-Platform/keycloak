@@ -7,6 +7,7 @@ resource "keycloak_openid_client" "client" {
   description = "The client used by third-party apps/services"
 
   access_type           = "PUBLIC"
+  full_scope_allowed = false
   direct_access_grants_enabled = true
   oauth2_device_authorization_grant_enabled = true
 }
