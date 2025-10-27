@@ -16,5 +16,5 @@ provider "keycloak" {
 
 module "clients" {
   source = "./clients"
-  realm_id = keycloak_realm.psp_realm.id
+  realm_id = local.realm.id
 }

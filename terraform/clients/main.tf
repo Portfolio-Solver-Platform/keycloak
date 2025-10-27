@@ -14,4 +14,7 @@ module "solver_director" {
 module "third_party_app" {
   source = "./third-party-app/"
   realm_id = var.realm_id
+  scopes = {
+    solver_director = module.solver_director.scopes
+  }
 }

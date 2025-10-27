@@ -7,10 +7,3 @@ resource "keycloak_openid_client_scope" "projects_read" {
   gui_order              = 10
 }
 
-resource "keycloak_realm_optional_client_scopes" "optional_scopes" {
-  realm_id  = var.realm_id
-
-  optional_scopes = [
-    local.scopes.projects.read.name
-  ]
-}
