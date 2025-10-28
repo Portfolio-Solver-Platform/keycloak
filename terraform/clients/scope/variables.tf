@@ -23,6 +23,11 @@ variable "scope" {
     # The order in which this scope will be displayed in the consent screen
     gui_order           = number
 
+    # The roles that grant this scope.
+    # DANGER: If it is empty, then EVERYONE can be granted the scope.
+    # If the user has any one of these roles, they get the scope.
+    role_ids = set(string)
+
     # include_in_token    = optional(bool)  # Can override per-scope
   })
 }

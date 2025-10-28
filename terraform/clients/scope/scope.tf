@@ -18,3 +18,10 @@ resource "keycloak_openid_audience_protocol_mapper" "audience_mappers" {
 
   included_client_audience = var.client_id
 }
+
+resource "keycloak_generic_role_mapper" "scope_role_mapper" {
+  for_each        = var.scope.role_ids
+  realm_id        = var.realm_id
+  client_scope_id = local.scope.id
+  role_id         = each.value
+}
