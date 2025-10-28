@@ -1,12 +1,12 @@
 
 module "scopes" {
   realm_id = var.realm_id
-  audience_client_id = local.client.client_id
+  client_id = local.client.client_id
   source = "../scopes"
 
   scopes = {
     projects_read = {
-      name                   = "solver-director:projects:read"
+      name                   = "projects:read"
       description            = "Scope for reading the currently active projects"
       consent_screen_text    = "See currently active projects"
       gui_order              = 130

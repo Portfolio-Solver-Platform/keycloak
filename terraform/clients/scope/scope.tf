@@ -4,7 +4,7 @@ locals {
 
 resource "keycloak_openid_client_scope" "scope" {
   realm_id               = var.realm_id
-  name                   = var.scope.name
+  name                   = "${var.client_id}:${var.scope.name}"
   description            = var.scope.description
   consent_screen_text    = var.scope.consent_screen_text
   include_in_token_scope = true
@@ -16,5 +16,5 @@ resource "keycloak_openid_audience_protocol_mapper" "audience_mappers" {
   client_scope_id = local.scope.id
   name            = "client-audience"
 
-  included_client_audience = var.audience_client_id
+  included_client_audience = var.client_id
 }

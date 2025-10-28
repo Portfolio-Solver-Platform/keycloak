@@ -3,7 +3,7 @@ variable "realm_id" {
   type        = string
 }
 
-variable "audience_client_id" {
+variable "client_id" {
   description = "The Keycloak client ID of the audience"
   type        = string
 }
