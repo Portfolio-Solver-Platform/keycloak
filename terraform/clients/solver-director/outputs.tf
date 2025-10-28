@@ -1,5 +1,5 @@
 
 output "scopes" {
-  value = local.scopes
+  value = module.scopes.scopes
 }
 
