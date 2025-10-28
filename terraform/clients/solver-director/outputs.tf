@@ -1,5 +1,5 @@
 
 output "scopes" {
-  value = module.scopes.scopes
+  value = module.scopes.public_scopes
 }
 
