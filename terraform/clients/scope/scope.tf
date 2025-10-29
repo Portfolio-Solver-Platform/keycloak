@@ -1,0 +1,27 @@
+locals {
+  scope = keycloak_openid_client_scope.scope
+}
+
+resource "keycloak_openid_client_scope" "scope" {
+  realm_id               = var.realm_id
+  name                   = "${var.client_id}:${var.scope.name}"
+  description            = var.scope.description
+  consent_screen_text    = var.scope.consent_screen_text
+  include_in_token_scope = true
+  gui_order              = var.scope.gui_order
+}
+
+resource "keycloak_openid_audience_protocol_mapper" "audience_mappers" {
+  realm_id        = var.realm_id
+  client_scope_id = local.scope.id
+  name            = "client-audience"
+
+  included_client_audience = var.client_id
+}
+
+resource "keycloak_generic_role_mapper" "scope_role_mapper" {
+  for_each        = var.scope.role_ids
+  realm_id        = var.realm_id
+  client_scope_id = local.scope.id
+  role_id         = each.value
+}

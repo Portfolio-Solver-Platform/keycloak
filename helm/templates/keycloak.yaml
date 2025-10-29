@@ -28,5 +28,7 @@ spec:
       key: password
   proxy:
     headers: "forwarded"
+  httpManagement:
+    port: 9000
 
 
