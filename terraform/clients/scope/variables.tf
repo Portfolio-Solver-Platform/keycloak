@@ -26,7 +26,7 @@ variable "scope" {
     # The roles that grant this scope.
     # DANGER: If it is empty, then EVERYONE can be granted the scope.
     # If the user has any one of these roles, they get the scope.
-    role_ids = set(string)
+    role_ids = map(string)
 
     # include_in_token    = optional(bool)  # Can override per-scope
   })

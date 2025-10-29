@@ -10,7 +10,7 @@ module "scopes" {
       description            = "Scope for reading the currently active projects"
       consent_screen_text    = "See currently active projects"
       gui_order              = 130
-      role_ids               = []
+      role_ids               = {}
     }
 
     projects_read_all = {
@@ -18,7 +18,9 @@ module "scopes" {
       description            = "Scope for reading the currently active projects of all users"
       consent_screen_text    = "See currently active projects for all users"
       gui_order              = 30
-      role_ids               = [local.roles.admin.id]
+      role_ids               = {
+        admin = local.roles.admin.id
+      }
     }
   }
 }
