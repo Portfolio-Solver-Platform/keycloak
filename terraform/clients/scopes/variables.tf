@@ -9,6 +9,6 @@ variable "client_id" {
 }
 
 variable "scopes" {
-  description = "The settings for the scopes. See the ../scope module documentation."
+  description = "The settings for the scopes. Each key-value pair is a scope, where the key is only for local readability. For the value, see the scope module documentation."
   type = map(any)
 }

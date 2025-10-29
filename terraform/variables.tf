@@ -14,5 +14,4 @@ variable "bootstrap_service_client_secret" {
   description = "The secret for the bootstrap service client"
   type        = string
   sensitive   = true
-  default     = "admin"
 }

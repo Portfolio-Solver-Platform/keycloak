@@ -6,4 +6,5 @@ variable "realm_id" {
 
 variable "scopes" {
   description = "The scopes for the various other clients"
+  type = map(map(object({ name = string })))
 }
