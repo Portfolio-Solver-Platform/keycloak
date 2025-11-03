@@ -6,6 +6,6 @@ resource "keycloak_openid_client" "client" {
   enabled = true
   description = "The client for the solver director service"
 
-  access_type           = "CONFIDENTIAL"
+  access_type = "CONFIDENTIAL"
   full_scope_allowed = false
 }
