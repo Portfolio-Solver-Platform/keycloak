@@ -13,6 +13,6 @@ resource "keycloak_openid_client_default_scopes" "client_default_scopes" {
   realm_id  = var.realm_id
   client_id = local.client.id
 
-  default_scopes = []
+  default_scopes = ["basic"]
 }
 
