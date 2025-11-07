@@ -9,6 +9,7 @@ terraform {
 module "solver_director" {
   source = "./solver-director/"
   realm_id = var.realm_id
+  kubernetes_namespace = var.kubernetes_namespace
 }
 
 module "third_party_app" {

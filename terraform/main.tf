@@ -14,10 +14,15 @@ provider "keycloak" {
   url           = var.keycloak_url
 }
 
+provider "kubernetes" {
+  config_path = var.kubernetes_config_path
+}
+
 module "clients" {
   source = "./clients"
   realm_id = local.realm.id
   admin_app_secret = var.admin_app_secret
+  kubernetes_namespace = var.kubernetes_namespace
 }
 
 module "dev_users" {

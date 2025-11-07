@@ -8,3 +8,8 @@ variable "admin_app_secret" {
   type        = string
   sensitive   = true
 }
+
+variable "kubernetes_namespace" {
+  description = "The Kubernetes namespace"
+  type        = string
+}
