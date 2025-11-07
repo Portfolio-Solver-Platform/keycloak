@@ -9,6 +9,7 @@ terraform {
 module "solver_director" {
   source = "./solver-director/"
   realm_id = var.realm_id
+  namespace = var.namespace
 }
 
 module "third_party_app" {

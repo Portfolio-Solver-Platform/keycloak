@@ -33,3 +33,14 @@ variable "admin_app_secret" {
   sensitive   = true
 }
 
+variable "kubernetes_namespace" {
+  description = "The Kubernetes namespace"
+  type        = string
+  default     = "psp"
+}
+
+variable "kubernetes_config_path" {
+  description = "Path to kubeconfig"
+  type        = string
+}
+
