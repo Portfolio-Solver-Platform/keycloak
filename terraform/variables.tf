@@ -1,3 +1,14 @@
+
+variable "environment" {
+  type        = string
+  description = "Deployment environment"
+
+  validation {
+    condition     = contains(["dev", "prod"], var.environment)
+    error_message = "Environment must be dev or prod."
+  }
+}
+
 variable "keycloak_url" {
   description = "Base URL to Keycloak"
   type        = string
@@ -21,3 +32,4 @@ variable "admin_app_secret" {
   type        = string
   sensitive   = true
 }
+

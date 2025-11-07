@@ -20,8 +20,9 @@ module "clients" {
   admin_app_secret = var.admin_app_secret
 }
 
-module "test_users" {
-  source = "./test-users"
+module "dev_users" {
+  count = local.create_dev_users ? 1 : 0
+  source = "./dev-users"
   realm_id = local.realm.id
   roles = module.clients.roles
 }
