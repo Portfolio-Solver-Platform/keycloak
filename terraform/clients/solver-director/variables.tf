@@ -21,4 +21,3 @@ variable "kubernetes_client_secret_name" {
   default     = "solver-director-auth-client"
 }
 
-

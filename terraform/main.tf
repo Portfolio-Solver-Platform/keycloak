@@ -15,7 +15,7 @@ provider "keycloak" {
 }
 
 provider "kubernetes" {
-  config_path    = "~/.kube/config"
+  config_path = var.kubernetes_config_path
 }
 
 module "clients" {

@@ -15,21 +15,21 @@ resource "kubernetes_secret" "solver_director_auth_client" {
 
 resource "kubernetes_role" "client_secret_reader" {
   metadata {
-    name      = "solver-director-auth-client-secret-reader"
+    name      = "${var.kubernetes_client_secret_name}-reader"
     namespace = var.kubernetes_namespace
   }
 
   rule {
     api_groups     = [""]
     resources      = ["secrets"]
-    resource_names = ["solver-director-auth-client"]
+    resource_names = [var.kubernetes_client_secret_name]
     verbs          = ["get", "list"]
   }
 }
 
 resource "kubernetes_role_binding" "client_secret_reader" {
   metadata {
-    name      = "solver-director-auth-client-secret-reader"
+    name      = "${var.kubernetes_client_secret_name}-reader"
     namespace = var.kubernetes_namespace
   }
 
