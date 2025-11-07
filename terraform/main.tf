@@ -19,3 +19,9 @@ module "clients" {
   realm_id = local.realm.id
   admin_app_secret = var.admin_app_secret
 }
+
+module "test_users" {
+  source = "./test-users"
+  realm_id = local.realm.id
+  roles = module.clients.roles
+}

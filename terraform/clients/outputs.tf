@@ -1,6 +1,6 @@
 
 output "scopes" {
-  value = module.scopes.scopes
+  value = local.scopes
 }
 
 output "roles" {
