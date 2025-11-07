@@ -12,23 +12,20 @@ Keycloak handles all user data, authentication and authorisation.
 
 ## Deployment
 
-This section will describe how to apply the Keycloak configuration
-so you can have a corresponding Keycloak instance running on Kubernetes.
-
-How to use this deployment guide:
-1. First, see the [Prerequisites](#prerequisites).
-2. Deploy using [Skaffold](#skaffold).
+This section will describe how to apply the Keycloak configuration so you can have a corresponding Keycloak instance running on Kubernetes.
 
 ### Prerequisites
 
 Before continuing with this guide, you need to:
 - Have a Kubernetes cluster running.
-- Have kubectl set up for the Kubernetes cluster.
+- Have `kubectl` set up for the Kubernetes cluster.
 
-### Skaffold
+### Deploy
 
-This section describes how to deploy Keycloak in Kubernetes using [Skaffold](https://skaffold.dev/).
-
-In the root of this repository:
-- For development environment: run `skaffold dev`
-- For production/staging environment: run `skaffold run -p prod`
+1. Deploy Keycloak
+   - Development environment: `skaffold dev` in the root of this repository
+   - Production/staging environment: `skaffold run -p prod` in the root of this repository
+2. Wait for Keycloak to deploy. The `skaffold` command finishes before Keycloak completes deployment, so you have to wait until it is done.
+3. Apply Keycloak configuration
+   - Development environment: `./apply-terraform.sh dev`
+   - Production/staging environment: `./apply-terraform.sh` after you have set the environment variables that are used in the script.
