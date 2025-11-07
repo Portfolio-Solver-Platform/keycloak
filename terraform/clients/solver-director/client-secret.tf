@@ -1,8 +1,8 @@
 
 resource "kubernetes_secret" "solver_director_auth_client" {
   metadata {
-    name      = "solver-director-auth-client"
-    namespace = var.namespace
+    name      = var.kubernetes_client_secret_name
+    namespace = var.kubernetes_namespace
   }
 
   data = {
@@ -16,7 +16,7 @@ resource "kubernetes_secret" "solver_director_auth_client" {
 resource "kubernetes_role" "client_secret_reader" {
   metadata {
     name      = "solver-director-auth-client-secret-reader"
-    namespace = var.namespace
+    namespace = var.kubernetes_namespace
   }
 
   rule {
@@ -30,7 +30,7 @@ resource "kubernetes_role" "client_secret_reader" {
 resource "kubernetes_role_binding" "client_secret_reader" {
   metadata {
     name      = "solver-director-auth-client-secret-reader"
-    namespace = var.namespace
+    namespace = var.kubernetes_namespace
   }
 
   role_ref {
@@ -41,8 +41,8 @@ resource "kubernetes_role_binding" "client_secret_reader" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "solver-director"
-    namespace = var.namespace
+    name      = var.kubernetes_service_account_name
+    namespace = var.kubernetes_namespace
   }
 }
 

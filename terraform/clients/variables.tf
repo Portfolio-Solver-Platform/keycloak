@@ -9,7 +9,7 @@ variable "admin_app_secret" {
   sensitive   = true
 }
 
-variable "namespace" {
+variable "kubernetes_namespace" {
   description = "The Kubernetes namespace"
   type        = string
 }
