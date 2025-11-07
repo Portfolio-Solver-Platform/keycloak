@@ -6,6 +6,6 @@ variable "realm_id" {
 
 variable "roles" {
   description = "The roles for the clients"
-  type = map(map(object({ name = string })))
+  type = map(map(object({ id = string })))
 }
 
