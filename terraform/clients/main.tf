@@ -24,3 +24,9 @@ module "admin_app" {
   client_secret = var.admin_app_secret
   scopes = local.scopes
 }
+
+module "rabbitmq" {
+  source = "./rabbitmq/"
+  realm_id = var.realm_id
+  kubernetes_namespace = var.rabbitmq_namespace
+}
