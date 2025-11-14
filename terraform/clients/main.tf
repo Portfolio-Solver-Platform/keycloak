@@ -9,7 +9,7 @@ terraform {
 module "solver_director" {
   source = "./solver-director/"
   realm_id = var.realm_id
-  kubernetes_namespace = var.kubernetes_namespace
+  kubernetes_namespace = var.kubernetes_platform_namespace
 }
 
 module "third_party_app" {
@@ -28,5 +28,5 @@ module "admin_app" {
 module "rabbitmq" {
   source = "./rabbitmq/"
   realm_id = var.realm_id
-  kubernetes_namespace = var.rabbitmq_namespace
+  kubernetes_namespace = var.kubernetes_rabbitmq_namespace
 }

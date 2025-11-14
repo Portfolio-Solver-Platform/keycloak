@@ -22,8 +22,8 @@ module "clients" {
   source = "./clients"
   realm_id = local.realm.id
   admin_app_secret = var.admin_app_secret
-  kubernetes_namespace = var.kubernetes_namespace
-  rabbitmq_namespace = var.rabbitmq_namespace
+  kubernetes_platform_namespace = var.kubernetes_platform_namespace
+  kubernetes_rabbitmq_namespace = var.kubernetes_rabbitmq_namespace
 }
 
 module "dev_users" {

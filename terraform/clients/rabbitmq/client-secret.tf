@@ -1,6 +1,6 @@
 resource "kubernetes_secret" "auth_client" {
   metadata {
-    name      = "rabbitmq-auth-client"
+    name      = var.kubernetes_client_secret_name
     namespace = var.kubernetes_namespace
   }
 
@@ -14,21 +14,21 @@ resource "kubernetes_secret" "auth_client" {
 
 resource "kubernetes_role" "auth_client_reader" {
   metadata {
-    name      = "rabbitmq-auth-client-reader"
+    name      = "${var.kubernetes_client_secret_name}-reader"
     namespace = var.kubernetes_namespace
   }
 
   rule {
     api_groups     = [""]
     resources      = ["secrets"]
-    resource_names = [kubernetes_secret.auth_client.metadata[0].name]
+    resource_names = [var.kubernetes_client_secret_name]
     verbs          = ["get"]
   }
 }
 
 resource "kubernetes_role_binding" "auth_client_reader" {
   metadata {
-    name      = "rabbitmq-auth-client-reader"
+    name      = "${var.kubernetes_client_secret_name}-reader"
     namespace = var.kubernetes_namespace
   }
 
@@ -40,7 +40,7 @@ resource "kubernetes_role_binding" "auth_client_reader" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "default"
+    name      = var.kubernetes_service_account_name
     namespace = var.kubernetes_namespace
   }
 }
