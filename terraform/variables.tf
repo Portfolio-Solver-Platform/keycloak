@@ -39,6 +39,12 @@ variable "kubernetes_namespace" {
   default     = "psp"
 }
 
+variable "rabbitmq_namespace" {
+  description = "The Kubernetes namespace for RabbitMQ"
+  type        = string
+  default     = "rabbit-mq"
+}
+
 variable "kubernetes_config_path" {
   description = "Path to kubeconfig"
   type        = string

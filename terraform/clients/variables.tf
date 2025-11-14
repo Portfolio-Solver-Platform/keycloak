@@ -13,3 +13,8 @@ variable "kubernetes_namespace" {
   description = "The Kubernetes namespace"
   type        = string
 }
+
+variable "rabbitmq_namespace" {
+  description = "The Kubernetes namespace for RabbitMQ"
+  type        = string
+}
