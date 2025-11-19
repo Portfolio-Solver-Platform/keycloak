@@ -4,7 +4,8 @@ resource "keycloak_openid_client_optional_scopes" "client_optional_scopes" {
   client_id = local.client.id
 
   optional_scopes = [
-    var.scopes.solver_director.projects_read.name
+    var.scopes.solver_director.projects_read.name,
+    var.scopes.solver_director.projects_write.name,
   ]
 }
 

@@ -33,10 +33,16 @@ variable "admin_app_secret" {
   sensitive   = true
 }
 
-variable "kubernetes_namespace" {
-  description = "The Kubernetes namespace"
+variable "kubernetes_platform_namespace" {
+  description = "The Kubernetes platform namespace"
   type        = string
   default     = "psp"
+}
+
+variable "kubernetes_rabbitmq_namespace" {
+  description = "The Kubernetes namespace for RabbitMQ"
+  type        = string
+  default     = "rabbit-mq"
 }
 
 variable "kubernetes_config_path" {

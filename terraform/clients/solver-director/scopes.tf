@@ -22,6 +22,24 @@ module "scopes" {
         admin = local.roles.admin.id
       }
     }
+
+    projects_write = {
+      name                   = "projects:write"
+      description            = "Scope for managing the user's projects"
+      consent_screen_text    = "Manage currently active projects"
+      gui_order              = 120
+      role_ids               = {}
+    }
+
+    projects_read_all = {
+      name                   = "projects:write-all"
+      description            = "Scope for writing all the currently active projects of all users"
+      consent_screen_text    = "Manage currently active projects for all users"
+      gui_order              = 20
+      role_ids               = {
+        admin = local.roles.admin.id
+      }
+    }
   }
 }
 
