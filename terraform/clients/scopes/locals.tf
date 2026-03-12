@@ -1,3 +1,3 @@
 locals {
-  scopes = {for k,v in module.scope : k => v.scope}
+  scopes = { for k, v in module.scope : k => v.scope }
 }
