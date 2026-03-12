@@ -12,16 +12,16 @@ variable "scope" {
   description = "The settings for the scope"
   type = object({
     # Name of the scope
-    name                = string
+    name = string
 
     # Description of the scope
-    description         = string
+    description = string
 
     # The text that should be displayed to the user on the consent screen
     consent_screen_text = string
 
     # The order in which this scope will be displayed in the consent screen
-    gui_order           = number
+    gui_order = number
 
     # The roles that grant this scope.
     # DANGER: If it is empty, then EVERYONE can be granted the scope.

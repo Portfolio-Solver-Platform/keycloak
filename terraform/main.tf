@@ -2,7 +2,7 @@
 terraform {
   required_providers {
     keycloak = {
-      source = "keycloak/keycloak"
+      source  = "keycloak/keycloak"
       version = "5.5.0"
     }
   }
@@ -19,16 +19,16 @@ provider "kubernetes" {
 }
 
 module "clients" {
-  source = "./clients"
-  realm_id = local.realm.id
-  admin_app_secret = var.admin_app_secret
+  source                        = "./clients"
+  realm_id                      = local.realm.id
+  admin_app_secret              = var.admin_app_secret
   kubernetes_platform_namespace = var.kubernetes_platform_namespace
   kubernetes_rabbitmq_namespace = var.kubernetes_rabbitmq_namespace
 }
 
 module "dev_users" {
-  count = local.create_dev_users ? 1 : 0
-  source = "./dev-users"
+  count    = local.create_dev_users ? 1 : 0
+  source   = "./dev-users"
   realm_id = local.realm.id
-  roles = module.clients.roles
+  roles    = module.clients.roles
 }

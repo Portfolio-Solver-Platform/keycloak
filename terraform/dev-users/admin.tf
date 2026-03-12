@@ -1,8 +1,8 @@
 resource "keycloak_user" "admin" {
-  realm_id   = var.realm_id
-  username   = "admin"
+  realm_id = var.realm_id
+  username = "admin"
   initial_password {
-    value     = "admin"
+    value = "admin"
   }
 
   email      = "admin@admin.com"
