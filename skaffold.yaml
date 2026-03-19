@@ -9,7 +9,7 @@ profiles:
     deploy:
       helm:
         releases:
-          - name: keycloak
+          - name: auth-manager
             chartPath: helm/
             namespace: keycloak
             valuesFiles:
