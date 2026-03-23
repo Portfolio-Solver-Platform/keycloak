@@ -48,5 +48,6 @@ variable "kubernetes_rabbitmq_namespace" {
 variable "kubernetes_config_path" {
   description = "Path to kubeconfig"
   type        = string
+  default     = null
 }
 
