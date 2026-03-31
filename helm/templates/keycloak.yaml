@@ -12,10 +12,8 @@ spec:
   bootstrapAdmin:
     service:
       secret: {{ .Values.keycloak.bootstrap.admin.service }}
-    {{- if .Values.keycloak.bootstrap.admin.user }}
     user:
       secret: {{ .Values.keycloak.bootstrap.admin.user }}
-    {{- end }}
   db:
     database: "keycloak"
     host: "postgres"
