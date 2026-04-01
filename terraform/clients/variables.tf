@@ -7,6 +7,7 @@ variable "admin_app_secret" {
   description = "The secret for the admin app client"
   type        = string
   sensitive   = true
+  ephemeral   = true
 }
 
 variable "kubernetes_platform_namespace" {
