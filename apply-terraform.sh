@@ -4,7 +4,7 @@ if [ "$1" = "dev" ]; then
   echo "Using default development options, unless overridden by environment variables..."
 
   ENVIRONMENT="${ENVIRONMENT:-dev}"
-  KEYCLOAK_BOOTSTRAP_CLIENT_ID="${KEYCLOAK_BOOTSTRAP_CLIENT_ID:-admin}"
+  KEYCLOAK_BOOTSTRAP_CLIENT_ID="${KEYCLOAK_BOOTSTRAP_CLIENT_ID:-tofu-runner}"
   KEYCLOAK_BOOTSTRAP_CLIENT_SECRET="${KEYCLOAK_BOOTSTRAP_CLIENT_SECRET:-admin}"
   ADMIN_APP_CLIENT_SECRET="${ADMIN_APP_CLIENT_SECRET:-admin}"
   KEYCLOAK_URL="${KEYCLOAK_URL:-http://keycloak.local}"

@@ -13,4 +13,5 @@ variable "client_secret" {
   description = "The secret for the client"
   type        = string
   sensitive   = true
+  ephemeral   = true
 }
