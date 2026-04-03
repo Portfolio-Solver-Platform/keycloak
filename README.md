@@ -4,11 +4,9 @@ This is the [Keycloak](https://www.keycloak.org/) configuration for [PSP](https:
 Keycloak handles all user data, authentication and authorisation.
 
 > [!caution]
-> Not for use in production yet!
->
-> The following changes should be made before being production-ready:
+> The following changes should be made before being ideal for production:
 > - Replace the database with a production setup (in `database.yaml`).
-> - Make the secrets different (and not publicly available) in production settings.
+> - Also replace the database credentials with a secret.
 
 ## Deployment
 
