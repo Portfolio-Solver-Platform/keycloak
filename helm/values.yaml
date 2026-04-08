@@ -1,7 +1,8 @@
-
 keycloak:
+  hostname: keycloak.local
+  instanceCount: 1
   httpEnabled: true
   bootstrap:
     admin:
       service: keycloak-bootstrap-service-secret
-
+      user: keycloak-bootstrap-user-secret

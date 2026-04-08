@@ -21,7 +21,5 @@ profiles:
           - name: keycloak
             chartPath: helm
             namespace: keycloak
-            valuesFiles:
-              - helm/values-prod.yaml
             wait: true
             upgradeOnChange: true

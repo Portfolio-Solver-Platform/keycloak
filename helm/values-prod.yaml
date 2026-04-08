@@ -1,3 +1,0 @@
-keycloak:
-  hostname: keycloak.local
-  instanceCount: 1
