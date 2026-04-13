@@ -12,3 +12,13 @@ resource "keycloak_openid_client" "client" {
   direct_access_grants_enabled = false
   full_scope_allowed           = false
 }
+
+resource "keycloak_openid_client_optional_scopes" "service_account_scopes" {
+  realm_id  = var.realm_id
+  client_id = local.client.id
+
+  optional_scopes = [
+    module.scopes.scopes.solvers_read.name,
+    module.scopes.scopes.problems_read.name,
+  ]
+}

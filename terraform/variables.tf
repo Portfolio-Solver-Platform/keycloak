@@ -15,6 +15,12 @@ variable "keycloak_url" {
   default     = "http://keycloak.local"
 }
 
+variable "keycloak_hostname" {
+  description = "Public hostname for Keycloak (used as frontendUrl in the realm)"
+  type        = string
+  default     = "keycloak.local"
+}
+
 variable "bootstrap_service_client_id" {
   description = "The ID of the bootstrap service client"
   type        = string
