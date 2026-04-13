@@ -3,6 +3,10 @@ resource "keycloak_realm" "psp" {
   realm        = "psp"
   enabled      = true
   display_name = "Portfolio Solver Platform"
+
+  attributes = {
+    "frontendUrl" = "http://keycloak.local"
+  }
 }
 
 # Explicitly set optional scopes (so we don't just use the default ones)
