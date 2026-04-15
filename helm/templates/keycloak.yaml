@@ -25,7 +25,7 @@ spec:
       name: keycloak-database-secret
       key: password
   proxy:
-    headers: "forwarded"
+    headers: "xforwarded"
   httpManagement:
     port: 9000
 
