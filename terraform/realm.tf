@@ -8,8 +8,6 @@ resource "keycloak_realm" "psp" {
     "frontendUrl" = var.frontend_url
   }
 
-  browser_flow = keycloak_authentication_flow.browser_mfa.alias
-
   brute_force_protected             = true
   max_failure_wait_seconds          = 900 # 15 minutes lockout
   minimum_quick_login_wait_seconds  = 60
@@ -26,6 +24,16 @@ resource "keycloak_realm" "psp" {
   sso_session_max_lifespan         = "10h"
   access_token_lifespan            = "5m" 
   access_token_lifespan_for_implicit_flow = "15m"
+}
+
+# Enable MFA
+resource "keycloak_authentication_bindings" "realm_browser_binding" {
+  realm_id     = keycloak_realm.psp.id
+  browser_flow = keycloak_authentication_flow.browser_mfa.alias
+
+  depends_on = [
+    keycloak_authentication_execution.otp
+  ]
 }
 
 # Explicitly set optional scopes (so we don't just use the default ones)
