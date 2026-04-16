@@ -8,12 +8,17 @@ resource "keycloak_realm" "psp" {
     "frontendUrl" = var.frontend_url
   }
 
-  brute_force_protected             = true
-  max_failure_wait_seconds          = 900 # 15 minutes lockout
-  minimum_quick_login_wait_seconds  = 60
-  wait_increment_seconds            = 60
-  quick_login_check_milli_seconds   = 1000
-  max_delta_time_seconds            = 43200 # 12 hours
+  security_defenses {
+    brute_force_detection {
+      permanent_lockout                = false
+      max_login_failures               = 5
+      wait_increment_seconds           = 60
+      quick_login_check_milli_seconds  = 1000
+      minimum_quick_login_wait_seconds = 60
+      max_failure_wait_seconds         = 900   # 15 minutes max lockout
+      failure_reset_time_seconds       = 43200 # 12 hours
+    }
+  }
 
   registration_allowed = false
   reset_password_allowed = true # Since MFA is enabled, it is safe to allow them to reset the password themselves
