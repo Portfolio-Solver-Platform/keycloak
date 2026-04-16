@@ -15,7 +15,7 @@ variable "keycloak_url" {
   default     = "http://keycloak.local"
 }
 
-variable "keycloak_hostname" {
+variable "frontend_url" {
   description = "Public hostname for Keycloak (used as frontendUrl in the realm)"
   type        = string
   default     = "keycloak.local"

@@ -5,7 +5,7 @@ resource "keycloak_realm" "psp" {
   display_name = "Portfolio Solver Platform"
 
   attributes = {
-    "frontendUrl" = "http://${var.keycloak_hostname}"
+    "frontendUrl" = var.frontend_url
   }
 }
 
