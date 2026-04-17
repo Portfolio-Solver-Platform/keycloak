@@ -15,7 +15,7 @@ variable "keycloak_url" {
   default     = "http://keycloak.local"
 }
 
-variable "keycloak_hostname" {
+variable "frontend_url" {
   description = "Public hostname for Keycloak (used as frontendUrl in the realm)"
   type        = string
   default     = "keycloak.local"
@@ -56,5 +56,17 @@ variable "kubernetes_config_path" {
   description = "Path to kubeconfig"
   type        = string
   default     = null
+}
+
+variable "enable_password_policy" {
+  description = "Whether to use a strong password policy"
+  type        = bool
+  default     = true
+}
+
+variable "force_mfa" {
+  description = "Whether to force the use of multi-factor authentication"
+  type        = bool
+  default     = true
 }
 
