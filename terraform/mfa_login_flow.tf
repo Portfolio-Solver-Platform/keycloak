@@ -32,7 +32,7 @@ resource "keycloak_authentication_execution" "otp" {
   realm_id          = keycloak_realm.psp.id
   parent_flow_alias = keycloak_authentication_subflow.forms.alias
   authenticator     = "auth-otp-form"
-  requirement       = "REQUIRED" 
+  requirement       = "REQUIRED"
 
   depends_on = [keycloak_authentication_execution.username_password]
 }
@@ -41,6 +41,6 @@ resource "keycloak_required_action" "configure_totp" {
   realm_id       = keycloak_realm.psp.id
   alias          = "CONFIGURE_TOTP"
   enabled        = true
-  default_action = false 
+  default_action = false
   name           = "Configure OTP"
 }
