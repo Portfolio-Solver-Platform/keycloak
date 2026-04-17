@@ -23,7 +23,7 @@ resource "keycloak_realm" "psp" {
   registration_allowed = false
   reset_password_allowed = true # Since MFA is enabled, it is safe to allow them to reset the password themselves
 
-  password_policy = "length(14) and upperCase(1) and lowerCase(1) and digits(1) and specialChars(1) and forceExpiredPasswordChange(365) and notUsername and passwordHistory(5) and hashIterations(27500)"
+  password_policy = var.enable_password_policy ? "length(14) and upperCase(1) and lowerCase(1) and digits(1) and specialChars(1) and forceExpiredPasswordChange(365) and notUsername and passwordHistory(5) and hashIterations(27500)"
 
   sso_session_idle_timeout         = "30m"
   sso_session_max_lifespan         = "10h"
@@ -33,6 +33,8 @@ resource "keycloak_realm" "psp" {
 
 # Enable MFA
 resource "keycloak_authentication_bindings" "realm_browser_binding" {
+  count        = var.force_mfa ? 1 : 0
+
   realm_id     = keycloak_realm.psp.id
   browser_flow = keycloak_authentication_flow.browser_mfa.alias
 

@@ -58,3 +58,15 @@ variable "kubernetes_config_path" {
   default     = null
 }
 
+variable "enable_password_policy" {
+  description = "Whether to use a strong password policy"
+  type        = bool
+  default     = true
+}
+
+variable "force_mfa" {
+  description = "Whether to force the use of multi-factor authentication"
+  type        = bool
+  default     = true
+}
+
