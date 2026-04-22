@@ -9,7 +9,9 @@ spec:
     # tlsSecret: example-tls-secret  # For HTTPS, but gateway and mTLS handles this
   hostname:
     hostname: {{ .Values.keycloak.hostname }}
-    admin: "localhost" # Port-forward for admin access on localhost
+    # Only allow internal access (or port-forward).
+    # Internal access is needed since the OpenTofu configuration is applied from inside.
+    admin: "keycloak-service.keycloak.svc.cluster.local"
   bootstrapAdmin:
     service:
       secret: {{ .Values.keycloak.bootstrap.admin.service }}
