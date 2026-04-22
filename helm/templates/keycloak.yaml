@@ -9,6 +9,7 @@ spec:
     # tlsSecret: example-tls-secret  # For HTTPS, but gateway and mTLS handles this
   hostname:
     hostname: {{ .Values.keycloak.hostname }}
+    admin: "localhost" # Port-forward for admin access on localhost
   bootstrapAdmin:
     service:
       secret: {{ .Values.keycloak.bootstrap.admin.service }}
